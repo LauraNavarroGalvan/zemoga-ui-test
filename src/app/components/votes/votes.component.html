@@ -1,0 +1,67 @@
+<div class="vote-container">
+    <div class="message row no-gutters">
+        <div class="title-content">
+            <h6 class="subtitle">Speak out. Be heard.</h6>
+            <h5 class="title">Be counted</h5>
+        </div>
+        <p class="text">Rule of Thumb is a crowd sourced court of public opinion where anyone and everyone can speak out
+            and speak freely. It’s easy: You share your opinion, we analyze and put the data in a public report.</p>
+        <button
+            class="close"
+            mat-icon-button
+            aria-label="close-icon"
+        >
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+    <div class="vote-content">
+        <h2 class="title">
+            Previous Rulings
+        </h2>
+        <div class="candidates row no-gutters">
+            <div class="candidate-card col-md-6" *ngFor="let candidate of candidates">
+                <div
+                class="card-vote"
+                [style.background-image]="candidate.image"
+                >
+                    <div class="card-vote-content">
+                        <div class="card-vote-header row no-gutters">
+                            <div class="icon-cotent 
+                            {{candidate.positiveVotes > candidate.negativeVotes ? 'positive' : 'negative'}} ">
+                                <mat-icon>{{ candidate.positiveVotes > candidate.negativeVotes ? 'thumb_up' : 'thumb_down'}}</mat-icon>
+                            </div>
+                            <div class="title-name">
+                                {{candidate.name}}
+                            </div>
+                        </div>
+                        <p class="description">
+                            {{candidate.description}}
+                        </p>
+                        <div class="card-vote-aditional-info row no-gutters">
+                            <button mat-stroked-button>View Full Report</button>
+                            <div class="info-date">
+                                <span>1 month ago</span><br>
+                                in {{candidate.category}}
+                            </div>
+                        </div>
+                        <div class="range-vote row no-gutters">
+                            <div class="positive" [style.width.%]="candidate.positiveVotes">
+                                <mat-icon>thumb_up</mat-icon>
+                                <div class="text">{{candidate.positiveVotes}}%</div>
+                            </div>
+                            <div class="negative" [style.width.%]="candidate.negativeVotes">
+                                <div class="text">{{candidate.negativeVotes}}%</div>
+                                <mat-icon>thumb_down</mat-icon>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="campaign-new-votes row no-gutters align-items-center">
+            <div class="text">Is there anyone else you would want us to add?</div>
+            <button mat-stroked-button>Submit a Name</button>
+        </div>
+    </div>
+</div>

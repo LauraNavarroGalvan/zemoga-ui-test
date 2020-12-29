@@ -1,0 +1,276 @@
+@import "src/scss/utilities/mixins";
+
+.vote-container {
+    padding: 33px 133px 0;
+    .message {
+        background-color: rgb(235, 235, 235);
+        width: 100%;
+        min-height: 100px;
+        padding: 25px;
+        font-family: "Lato";
+        color: #333333;
+        align-items: center;
+        position: relative;
+        .title-content {
+            .title {
+                font-size: 26px;
+                font-weight: bold;
+                line-height: 1.131;
+                margin-bottom: 0;
+            }
+            .subtitle {
+                font-size: 17px;
+                line-height: 1.2;
+                margin-bottom: 3px;
+                font-weight: 300;
+            }
+        }
+        .text {
+            flex: 0 0 auto;
+            max-width: 80%;
+            margin-bottom: 0;
+            font-size: 15px;
+            line-height: 1.515;
+            font-weight: 300;
+            margin-left: 14px;
+        }
+        .close {
+            color: #333333;
+            position: absolute;
+            right: 25px;
+            font-size: 15px;
+            line-height: 16px;
+            width: auto;
+            height: auto;
+        }
+    }
+    .vote-content {
+        margin: 40px 0;
+        .title {
+            color: #333333;
+            font-family: "Lato";
+            font-size: 40px;
+            line-height: 1.2;
+            font-weight: 300;
+            margin-bottom: 2px;
+        }
+
+        .candidates {
+            margin: 0 -20px;
+            .candidate-card {
+                padding: 20px;
+            }
+            .card-vote {
+                width: 100%;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position-x: center;
+                height: 550px;
+                font-family: "Lato";
+                font-weight: 300;
+                color: white;
+                max-width: 492px;
+                margin: auto;
+                .card-vote-content {
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-end;
+                    background: rgb(0, 0, 0);
+                    background: linear-gradient(0deg, rgba(0, 0, 0, 0.85) 0%, rgba(128, 128, 128, 0.0035364488) 73%);
+                    .card-vote-header {
+                        align-items: center;
+                        margin-bottom: 12px;
+                        .icon-cotent {
+                            margin-right: 7px;
+                            width: 31px;
+                            height: 31px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            &.positive {
+                                background-color: #1cbbb4;
+                            }
+                            &.negative {
+                                background-color: #ffad1d;
+                            }
+                        }
+                        .title-name {
+                            font-size: 45px;
+                            line-height: 1.2;
+                            font-weight: 400;
+                            max-width: calc(100% - 40px);
+                        }
+                    }
+                    .description {
+                        font-size: 16px;
+                        line-height: 1.2;
+                        padding: 0 40px;
+                        margin-bottom: 24px;
+                    }
+
+                    .card-vote-aditional-info {
+                        justify-content: space-between;
+                        padding: 0 21px 32px 40px;
+                        .mat-stroked-button {
+                            border: 1px solid white;
+                            background-color: rgba(0, 0, 0, 0.149);
+                            width: 154px;
+                            height: 38px;
+                            border-radius: 0;
+                            font-family: "Lato";
+                            font-size: 14px;
+                            line-height: 1.714;
+                            font-weight: 400;
+                        }
+                        .info-date {
+                            font-size: 12px;
+                            line-height: 1.2;
+                            text-align: right;
+                            font-weight: 400;
+                            span {
+                                font-weight: bold;
+                            }
+                        }
+                    }
+                }
+                .range-vote {
+                    .positive {
+                        background-color: rgba(28, 187, 180, 0.702);
+                        width: 50%;
+                    }
+                    .negative {
+                        background-color: rgba(255, 173, 29, 0.702);
+                        width: 50%;
+                        justify-content: flex-end;
+                    }
+                    .positive,
+                    .negative {
+                        height: 49px;
+                        color: white;
+                        padding: 9px 11px;
+                        display: flex;
+                        align-items: center;
+                    }
+                    .text {
+                        font-size: 20px;
+                        font-family: "Lato";
+                        font-weight: 300;
+                        color: rgb(255, 255, 255);
+                        line-height: 1.2;
+                        margin: 0 9px;
+                    }
+                }
+            }
+        }
+        .campaign-new-votes {
+            margin-top: 12px;
+            position: relative;
+            overflow: hidden;
+            background-image: url("../../../assets/img/people.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            min-height: 80px;
+            padding: 15px 24px;
+            justify-content: space-between;
+            &:before {
+                content: " ";
+                display: block;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+                opacity: 0.85;
+                background: white;
+            }
+            .text {
+                position: relative;
+                z-index: 2;
+                font-size: 30px;
+                font-family: "Lato";
+                font-weight: 300;
+                color: rgb(51, 51, 51);
+                line-height: 0.8;
+                text-align: center;
+                max-width: 70%;
+            }
+            .mat-stroked-button {
+                position: relative;
+                z-index: 2;
+                border: 3px solid #333333;
+                background-color: rgba(255, 255, 255, 0.149);
+                height: 47px;
+                width: 204px;
+                font-size: 20px;
+                font-family: "Lato";
+                line-height: 1.2;
+            }
+        }
+    }
+    @include mq(lg, max) {
+        padding: 33px 40px 0;
+        .message .text {
+            max-width: 70%;
+        }
+        .vote-content {
+            .title {
+                margin-bottom: 12px;
+            }
+            .candidates .candidate-card {
+                padding: 10px;
+            }
+            .campaign-new-votes {
+                margin-top: 30px;
+                .text {
+                    text-align: left;
+                    max-width: 68%;
+                }
+            }
+        }
+        @include mq(md, min) {
+            .vote-content .candidates {
+                margin: 0 -10px
+            }
+        }
+    }
+
+    @include mq(md, max) {
+        max-width: 100vw;
+        overflow: hidden;
+        padding: 20px 16px;
+        .message {
+            padding: 25px 16px;
+            .close {
+                top: 25px;
+            }
+            .title-content .title {
+                font-size: 22px;
+            }
+            .text {
+                margin: 12px 0 0;
+                max-width: 100%;
+            }
+        }
+        .vote-content {
+            margin: 20px 0;
+            .title {
+                font-size: 32px;
+                text-align: center;
+            }
+            .candidates .candidate-card {
+                padding: 10px 20px;
+            }
+            .campaign-new-votes {
+                padding: 16px;
+                justify-content: center;
+                .text {
+                    max-width: 100%;
+                    margin-bottom: 16px;
+                }
+            }
+        }
+    }
+}
