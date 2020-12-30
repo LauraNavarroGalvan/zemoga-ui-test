@@ -1,0 +1,22 @@
+@import "~@angular/material/theming";
+
+// Custom-Typography
+$custom-typography: mat-typography-config(
+  $font-family: "Lato, Arial, Helvetica, sans-serif",
+  $headline: mat-typography-level(32px, 48px, 700),
+  $body-1: mat-typography-level(16px, 24px, 400),
+);
+
+@include angular-material-typography($custom-typography);
+
+// Custom  Components
+.mat-button-toggle-group.vote-section {
+  border-radius: 0;
+  .icon-cotent.mat-button-toggle .mat-button-toggle-label-content {
+    padding: 0;
+    line-height: 24px;
+  }
+  .mat-button-toggle-checked {
+    border: 2px solid white;
+  }
+}

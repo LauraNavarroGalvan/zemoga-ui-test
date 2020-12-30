@@ -1,0 +1,44 @@
+{
+    "candidates" : [
+        {
+          "id": 1,
+          "image": "url(../../../assets/img/keny.png)",
+          "name": "Kanye West",
+          "category": "Entertainment",
+          "description": "Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero.",
+          "positiveVotes": 64,
+          "negativeVotes": 36,
+          "totalVotes": 100
+        },
+        {
+          "id": 2,
+          "image": "url(../../../assets/img/Mark.png)",
+          "name": "Mark Zuckerberg",
+          "category": "Business",
+          "description": "Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero.",
+          "positiveVotes": 36,
+          "negativeVotes": 64,
+          "totalVotes": 100
+        },
+        {
+          "id": 3,
+          "image": "url(../../../assets/img/cristina.png)",
+          "name": "Cristina Fernández de Kirchner",
+          "category": "Politics",
+          "description": "Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero.",
+          "positiveVotes": 36,
+          "negativeVotes": 64,
+          "totalVotes": 100
+        },
+        {
+          "id": 4,
+          "image": "url(../../../assets/img/malala.png)",
+          "name": "Malala Yousafzai",
+          "category": "Entertainment",
+          "description": "Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero.",
+          "positiveVotes": 64,
+          "negativeVotes": 36,
+          "totalVotes": 100
+        }
+    ]
+}

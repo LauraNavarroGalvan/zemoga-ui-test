@@ -19,38 +19,58 @@
             Previous Rulings
         </h2>
         <div class="candidates row no-gutters">
-            <div class="candidate-card col-md-6" *ngFor="let candidate of candidates">
+            <div
+                class="candidate-card col-md-6"
+                *ngFor="let candidate of candidates; index as i"
+            >
                 <div
-                class="card-vote"
-                [style.background-image]="candidate.image"
+                    class="card-vote"
+                    [style.background-image]="candidate.image"
                 >
                     <div class="card-vote-content">
                         <div class="card-vote-header row no-gutters">
                             <div class="icon-cotent 
                             {{candidate.positiveVotes > candidate.negativeVotes ? 'positive' : 'negative'}} ">
-                                <mat-icon>{{ candidate.positiveVotes > candidate.negativeVotes ? 'thumb_up' : 'thumb_down'}}</mat-icon>
+                                <mat-icon>{{ candidate.positiveVotes > candidate.negativeVotes ? 'thumb_up' :
+                                    'thumb_down'}}</mat-icon>
                             </div>
                             <div class="title-name">
                                 {{candidate.name}}
+                            </div>
+                            <div class="info-date">
+                                <span>1 month ago</span> in {{candidate.category}}
                             </div>
                         </div>
                         <p class="description">
                             {{candidate.description}}
                         </p>
                         <div class="card-vote-aditional-info row no-gutters">
-                            <button mat-stroked-button>View Full Report</button>
-                            <div class="info-date">
-                                <span>1 month ago</span><br>
-                                in {{candidate.category}}
-                            </div>
+                            <mat-button-toggle-group  
+                                *ngIf="!candidate.hasVoted"
+                                name="voteSection{{candidate.id}}"
+                                class="vote-section"
+                                [(value)]="candidate.vote"
+                            >
+                                <mat-button-toggle class="icon-cotent positive" value="positive"><mat-icon>thumb_up</mat-icon></mat-button-toggle>
+                                <mat-button-toggle class="icon-cotent negative" value="negative"><mat-icon>thumb_down</mat-icon></mat-button-toggle>
+                            </mat-button-toggle-group>
+                            <button mat-stroked-button (click)="candidate.hasVoted ? voteAgain (i) : vote(i, candidate.vote)">
+                                {{candidate.hasVoted ? 'Vote again' : 'Vote now'}}
+                            </button>
                         </div>
                         <div class="range-vote row no-gutters">
-                            <div class="positive" [style.width.%]="candidate.positiveVotes">
+                            <div
+                                class="positive"
+                                [style.width.%]="getPercentageVote(candidate.positiveVotes, candidate.totalVotes)"
+                            >
                                 <mat-icon>thumb_up</mat-icon>
-                                <div class="text">{{candidate.positiveVotes}}%</div>
+                                <div class="text">{{getPercentageVote(candidate.positiveVotes, candidate.totalVotes) | number:'2.0-2'}}%</div>
                             </div>
-                            <div class="negative" [style.width.%]="candidate.negativeVotes">
-                                <div class="text">{{candidate.negativeVotes}}%</div>
+                            <div
+                                class="negative"
+                                [style.width.%]="getPercentageVote(candidate.negativeVotes, candidate.totalVotes)"
+                            >
+                                <div class="text">{{getPercentageVote(candidate.negativeVotes, candidate.totalVotes) | number:'2.0-2'}}%</div>
                                 <mat-icon>thumb_down</mat-icon>
                             </div>
                         </div>
