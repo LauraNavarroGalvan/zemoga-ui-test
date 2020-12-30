@@ -1,0 +1,55 @@
+<div
+    class="header-container"
+    [style.background-image]="'url(../../../assets/img/pope.png)'"
+>
+    <app-header></app-header>
+
+    <div class="card-pope-vote">
+        <div class="card-bg">
+            <div class="card-content">
+                <p class="attribute-card">
+                    What’s your opinion on
+                </p>
+                <h1 class="title-card">
+                    Pope Francis?
+                </h1>
+                <p class="card-content-text">
+                    He’s talking tough on clergy sexual abuse, but is he just another papal pervert protector? (thumbs
+                    down)
+                    or a true pedophile punishing pontiff? (thumbs up)
+                </p>
+                <div class="more-info">
+                    <i class="fab fa-wikipedia-w"></i>
+                    More information
+                </div>
+
+                <div class="card-footer-pope">
+                    What’s Your Verdict?
+                </div>
+
+            </div>
+        </div>
+        <div class="button-actions">
+            <button
+                mat-flat-button
+                class="positive"
+            >
+                <mat-icon>thumb_up</mat-icon>
+            </button>
+            <button
+                mat-flat-button
+                class="negative"
+            >
+                <mat-icon>thumb_down</mat-icon>
+            </button>
+        </div>
+    </div>
+
+
+    <div class="row no-gutters couting-days">
+        <div class="text">CLOSING IN</div>
+        <div class="days"> <span>22</span> days</div>
+    </div>
+</div>
+
+<app-votes></app-votes>

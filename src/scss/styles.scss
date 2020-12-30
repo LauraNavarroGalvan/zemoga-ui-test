@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import
+'utilities/mixins',
+'utilities/settings';
+
+
+body {
+    font-family: 'Lato', Arial, Helvetica, sans-serif;
+}
+
+.main-container{
+    max-width: 1440px;
+    margin: 0 auto;
+    .content {
+        min-height: 80vh;
+    }
+}

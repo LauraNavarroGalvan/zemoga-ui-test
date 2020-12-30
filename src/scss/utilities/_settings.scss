@@ -1,0 +1,21 @@
+
+//------------> Grid breakpoints mobile and standard <------------//
+$grid-breakpoints: (
+  xs:   0,
+  pS:   320px, // p is phone
+  pM:   360px,
+  pL:   400px,
+  pXL:  425px,
+  sm:   480px,
+  pT:   560px, // phone and tablet
+  tS:   576px, // t is for tablet
+  tM:   640px,
+  md:   768px,
+  tL:   860px,
+  lg:   992px,
+  ml:   1024px,
+  xl:   1200px,
+  dS:   1248px, // d is for desktop
+  dM:   1440px,
+  dL:   2560px
+);
