@@ -1,4 +1,8 @@
+import { VoteDialogComponent } from './../../shared/components/vote-dialog/vote-dialog.component';
+import { Candidate } from './../../shared/models/candidate';
+import { CandidatesService } from './../../shared/services/candidates.service';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-votes',
@@ -7,44 +11,49 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VotesComponent implements OnInit {
 
-  candidates = [
-    {
-      image: "url(../../../assets/img/keny.png)",
-      name: "Kanye West",
-      category: "Entertainment",
-      description: "Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero.",
-      positiveVotes: 64,
-      negativeVotes: 36
-    },
-    {
-      image: "url(../../../assets/img/Mark.png)",
-      name: "Mark Zuckerberg",
-      category: "Business",
-      description: "Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero.",
-      positiveVotes: 36,
-      negativeVotes: 64
-    },
-    {
-      image: "url(../../../assets/img/cristina.png)",
-      name: "Cristina Fernández de Kirchner",
-      category: "Politics",
-      description: "Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero.",
-      positiveVotes: 36,
-      negativeVotes: 64
-    },
-    {
-      image: "url(../../../assets/img/malala.png)",
-      name: "Malala Yousafzai",
-      category: "Entertainment",
-      description: "Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero.",
-      positiveVotes: 64,
-      negativeVotes: 36
-    }
-  ]
+  candidates: Candidate[];
 
-  constructor() { }
 
-  ngOnInit(): void {
+  constructor(private candidatesService: CandidatesService, public dialog: MatDialog) {
+    this.getCandidates();
+  }
+
+  ngOnInit(): void { }
+
+
+  getCandidates() {
+    this.candidatesService.getCandidates().then((candidates: Candidate[]) => {
+      candidates.forEach(candidate =>{
+        candidate.hasVoted = false;
+        candidate.vote = undefined;
+      });
+      this.candidates = candidates
+    });
+  }
+
+
+  vote(index, value) {
+    this.candidatesService.setNewVote(index, value).then((candidate: Candidate) => {
+      this.candidates[index] = candidate;
+      this.openDialog(index);
+    })
+  }
+
+  voteAgain(index){
+    this.candidates[index].hasVoted = false;
+    this.candidates[index].vote = undefined;
+  }
+
+  getPercentageVote(votes: number, totalVotes: number) {
+    return (votes * 100) / totalVotes
+  }
+
+  openDialog(index) {
+    const dialogRef = this.dialog.open(VoteDialogComponent);
+
+    dialogRef.afterClosed().subscribe(() => {
+      this.candidates[index].hasVoted = true;
+    });
   }
 
 }

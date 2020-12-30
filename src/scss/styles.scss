@@ -2,11 +2,16 @@
 
 @import
 'utilities/mixins',
-'utilities/settings';
+'utilities/variables',
+'settings/material';
 
 
 body {
     font-family: 'Lato', Arial, Helvetica, sans-serif;
+}
+
+button:focus {
+    outline: none;
 }
 
 .main-container{
